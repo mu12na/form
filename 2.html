@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <title>Store SD and Display in list</title>
+</head>
+<body>
+  <div class="container">
+    <h3 class="text text-success">Store your Name and Age</h3>
+    <div class="row justify-content-center p-5">
+        <div class="col-8">
+            <form method="post" name="sample">
+                <label for="name"class="text text-success" >Name:</label>
+                <input type="text" class="border border-success" name="name" id="name" placeholder="Ente your name..."><br><br>
+                <label for="agee" class="text text-success">Age:</label>
+                <input type="number" class="border border-success" name="age" id="age" placeholder="Ente your age..."><br><br>
+                <input class="button btn btn-success m-1 mx-1 my-1  " name="submit" value="submit" onclick="addData();">
+                <table id="table" class="table">
+                    <thead>
+                        <th class="text text-success">Name</th>
+                        <th class="text text-success" >Age</th>
+                    </thead>
+                    <tbody>
+        
+                    </tbody>
+                </table>
+            </form>
+        </div>
+       </div>
+  </div>
+
+    <script>
+        function addData() {
+            var name = document.getElementById('name').value;
+            var age = document.getElementById('age').value;
+
+            var tr = document.createElement('tr');
+
+            var td1 = tr.appendChild(document.createElement('td'));
+            var td2 = tr.appendChild(document.createElement('td'));
+
+            td1.innerHTML = name;
+            td2.innerHTML = age;
+            document.getElementById('table').appendChild(tr);
+        }
+    </script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

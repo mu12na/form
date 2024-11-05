@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>Form submission with LD</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-6">
+                <form id="form">
+                    <input type="text" class="form-control border-warning " id="Name" placeholder="your name..."><br>
+                    <input type="email" class="form-control border-warning" id="email" placeholder="your email..."><br>
+                    <input type="submit" class="btn btn-warning" onclick="test()" id="sub" value="submit" ><br>
+                </form>
+                <div id="text"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var form = document.getElementById('form');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault()
+        })
+
+        document.getElementById('sub').addEventListener('click', function (){
+            document.getElementById('text').innerHTML = ` Form data saved to local storage!`
+        })
+
+       function test () {
+        var Name = document.getElementById('Name').value;
+        var Email = document.getElementById('email').value;
+
+        var user = localStorage.setItem('Name', Name);
+        var mail = localStorage.setItem('Email', Email);
+
+        var user = localStorage.getItem('Name', Name);
+        var mail = localStorage.getItem('Email', Email); 
+       }
+    </script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
